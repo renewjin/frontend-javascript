@@ -49,6 +49,74 @@
                     조건식이 true인 경우 수행할 코드;
                 }
             </code>
+            *else는 조건식을 작성하는 () 없음
+        </pre>
+        <h5>0~100 사이에 랜덤숫자를 발생시켜서 홀짝 판별</h5>
+        <button onclick="check2()">확인하기</button>
+        <script>
+            /*
+            // 랜덤숫자 -> 난수 : 정의된 범위 내에서 무작위로 추출된 수
+            // 자바 Random() Math.random()
+            // 자바스크립트에서 Math.random() 사용할 수 있음
+            
+            Math.floor() : 내림   주어진 정수와 같거나 작은 정수 중에서 가장 큰 수 반환
+            Math.cell() : 올림   주어진 정수와 같거나 큰 정수 중에서 가장 작은 수 반환
+            Math.round() : 반올림
+
+            roadom으로 나온 실수를 정수로 반환하고 싶다면 위 세가지 중에서 넣고 싶은 값 괄호()안에
+            Math.random()을 넣어주면 됨
+
+            */
+            function check2() {
+
+                const number = Math.floor(Math.random() * 101); // 0부터 100까지 101가지 숫자 랜덤추출
+                if (number%2==0) {
+                    alert(number + "는 짝수");
+                } else {
+                    alert(number +"는 홀수");
+                }
+            }
+        </script>
+
+        <h3>if() - else if() - else()</h3>
+        <pre>
+            <code>
+                if(조건식1) {
+                    조건식1 이 true인 경우 실행
+                } else if (조건식2) {
+                    조건식1 false 조건식2 이 true인 경우 실행
+                } else {
+                    조건식1, 2 모두 false 경우 실행
+                }
+            </code>
+        </pre>
+        <h5>어린이 청소년 성인 구별</h5>
+        <pre>
+            나이를 입력 받아 0 ~ 13 : 어린이
+            14 ~ 19 : 청소년
+            20 ~ : 성인
+
+            나이 : <input type="number" id="age" />
+            <button onclick="check4()">확인하기</button>
+            <script>
+
+                const inputAge = document.getElementById("age").value;
+                
+                let 메세지;
+
+                function check4() {
+                    if(inputAge>0 && inputAge<14) {
+                        메세지 = "어린이";
+                    } else if (inputAge<20) {
+                        메세지 = "청소년";
+                    } else {
+                        메세지 = "성인";
+                    }
+                    console.log(inputAge);
+                    alert(메세지);
+                }
+                
+            </script>
         </pre>
     </body>
 </html>
