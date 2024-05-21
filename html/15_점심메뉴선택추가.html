@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>점심메뉴고르기</title>
+    </head>
+    <body>
+        <h2>점심메뉴 고르기</h2>
+        <div id="menu">
+            <h3>메뉴리스트</h3>
+            <ul id="menu-list">
+                <li>피자</li>
+                <li>햄버거</li>
+                <li>짜장면</li>
+                <!--나중에 메뉴 추가하기를 했을 때 추가될 것-->
+            </ul>
+        </div>
+        <style>
+            button {
+                padding: 10px 20px;
+                background-color: green;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background-color: yellowgreen;
+            }
+
+            ul {
+                list-style-type: none;
+            }
+        </style>
+        <button onclick="메뉴선택()">메뉴 선택하기</button>
+        <button onclick="메뉴추가()">메뉴 추가하기</button>
+        <script>
+            //메뉴추가기능 만들기
+            function 메뉴추가() {
+                const 메뉴리스트 = document.getElementById("menu-list");
+                
+                // 메뉴 추가 입력 프롬포트 추가하기
+                const 신메뉴 = prompt("새로운 메뉴를 입력해 주세요 : ");
+
+                //입력한 값이 기존에 있는지 확인
+                const 기존메뉴 = document.getElementsByTagName("li");
+                let 확인 = true;
+                // 만약에 새로운 메뉴를 입력해서 확인을 눌렀다면
+                if(신메뉴) {
+                    for(let i =0; i<기존메뉴.length; i++) {
+                        console.log(i);
+                        console.log("기존메뉴 : " + 기존메뉴[i]);
+                        console.log("신메뉴 : " + 신메뉴);
+                        
+                        if(기존메뉴[i].textContent == 신메뉴) {
+                            확인 = false;
+                            break;
+                        }
+                    }
+
+                    if(확인) {
+                        console.log(확인);
+                        // li 태그 추가하기
+                        const newItem = document.createElement("li"); // 새로운 태그 만들기
+                        // 만들어놓은 li 태그 안에 프롬포트로 추가할 내용 적은것
+                        newItem.textContent = 신메뉴; 
+                        메뉴리스트.appendChild(newItem);
+                    } else {
+                        alert("기존메뉴에 있습니다.");
+                        return;
+                    }
+                }
+            }
+
+            /*
+            createElement : 태그 생성하기 닫는 태그 표시 안해줘도 됨.
+                        예를 들어 div 태그를 생성하길 원한다면
+                        document.createElement('div');
+
+             appendChild : 눈에 보이게끔 부모 태그에 새로 만든 자식 태그를 추가
+
+                                          메뉴리스트.appendChild(newItem);
+             id값 제거하고 태그만 작성하기              ul.appendChild(li);
+                                        메뉴리스트 = ul 태그 값
+                                            newItem = 새로 추가되는 li 태그 값
+            */
+
+            //메뉴선택기능 만들기
+            function 메뉴선택() {
+                const 메뉴리스트 = document.getElementById("menu-list");
+                
+                // 태그를 선택할 것
+                const 아이템들 = document.getElementsByTagName("li"); //li 태그를 선택해서 숫자 배열로 만들기
+
+                // 랜덤숫자
+                const 랜덤숫자 = Math.floor(Math.random() * 아이템들.length);
+                console.log("랜덤으로나온숫자 : " + 랜덤숫자);
+                const 아이템선택 = 아이템들[랜덤숫자];
+                console.log("선택된 아이템 : " + 아이템선택);
+                console.log("선택된 아이템 : " + 아이템선택.innerText);
+                alert("오늘의 점심 메뉴는 ? " + 아이템선택.innerText);
+            }
+        </script>
+    </body>
+</html>

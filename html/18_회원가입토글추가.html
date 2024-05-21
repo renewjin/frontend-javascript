@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>회원가입양식</title>
+        <style>
+            .약관보이기 {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="메인">
+            <div class="가입내용">
+                <label>이름</label><input type="text" name="user_name" id="user_name" required>
+                <br>
+                <label>이메일</label><input type="email" name="user_email" id="user_email" required>
+                <button onclick="존재확인()">아이디확인</button>
+                <br>
+                <label>비밀번호</label><input type="password" name="user_pw" id="user_pw" required>
+                <br>
+                <label>비밀번호 확인</label><input type="password" name="user_pw_confirm" id="user_pw_confirm" required>
+                <button onclick="비밀번호확인()">비밀번호 확인</button>
+            </div>
+            <br>
+            <div class="약관" id="약관">
+                <p>
+                    이 부분은 이용약관 입니다.
+                </p>
+            </div>
+            <button type="button" onclick="약관숨기기()">이용약관</button>
+        </div>
+        <script>
+            const userName = "고영희";
+            const userEmail = "ko@kh.kh";
+
+            function 존재확인() {
+                const inputName = document.getElementById("user_name").value;
+                const inputEmail = document.getElementById("user_email").value;
+
+                if(inputName==userName && inputEmail==userEmail) {
+                    alert("이미 가입된 회원입니다.")
+                    document.getElementById("user_name").value = "";
+                    document.getElementById("user_email").value = "";
+                    return
+                }
+            }
+
+            function 비밀번호확인() {
+                const inputPW = document.getElementById("user_pw").value;
+                const inputPWConfirm = document.getElementById("user_pw_confirm").value;
+                if(inputPW != inputPWConfirm) {
+                    alert("비밀번호가 일치하지 않습니다")
+                    document.getElementById("user_pw_confirm").value = "";
+                    document.getElementById("user_pw").value = "";
+                    return;
+                }
+            }
+
+            function 약관숨기기() {
+                const 영역 = document.getElementById("약관"); // 해당아이디
+                if(영역.classList.contains("약관보이기")) { // 클래스
+                    영역.classList.remove("약관보이기");
+                } else {
+                    영역.classList.add("약관보이기");
+                }
+            }
+        </script>
+    </body>
+</html>

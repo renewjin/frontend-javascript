@@ -50,7 +50,7 @@
                     <div class="메인입력">
                         <label>ID</label>
                         <input type="text" name="userId" id="userId" placeholder="아이디 10글자 이내" maxlength="10" required>
-                        <button onclick="id중복확인()" name="idCheckbutton" id="idCheckbutton">중복 확인</button>
+                        <button type="button" onclick="id중복확인()" name="idCheckbutton" id="idCheckbutton">중복 확인</button>
                     </div>
                     <div class="메인입력">
                         <label>비밀번호</label>
@@ -59,7 +59,7 @@
                     <div class="메인입력">
                         <label>비밀번호 확인</label>
                         <input type="password" name="pw2" id="pw2" required>
-                        <button onclick="pw확인()" name="pwCheckbutton" id="pwCheckbutton">비밀번호 확인</button>
+                        <button type="button" onclick="pw확인()" name="pwCheckbutton" id="pwCheckbutton">비밀번호 확인</button>
                     </div>
                     <div class="메인입력">
                         <label>Email</label>
@@ -94,7 +94,7 @@
                     <div class="소개">
                         <label>자기소개</label>
                         <br>
-                        <textarea name="intro" id="intro" rows="10" cols="80" required></textarea>
+                        <textarea name="intro" id="intro" rows="10" cols="80" ></textarea>
                     </div>
                 </div>
                 <br>
@@ -110,6 +110,11 @@
                 const inputId = document.getElementById("userId").value; // input태그의 아이디를 가져와 현재 값을 변수에 넣음
                 const existId = "userkh";
 
+                if (inputId.length==0) {
+                    alert("아이디를 입력해 주세요");
+                    return;
+                }
+                
                 if (inputId.length>10) {
                     alert("아이디를 10글자 이내로 만들어주세요");
                     return;
