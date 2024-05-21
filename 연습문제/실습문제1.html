@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>실습문제1</title>
+        <style>
+            .section {
+                width: 500px;
+                height: 300px;
+            }
+        </style>
+    </head>
+    <body>
+       <div class="section">
+            <h1>테마 변경</h1>
+            <div class="버튼">
+                <button onclick="밝은모드()">밝은 모드</button>
+                <button onclick="어두운모드()">어두운 모드</button>
+                <button onclick="분홍모드()">분홍 모드</button>
+                <button onclick="초록모드()">초록 모드</button>
+            </div>
+       </div>
+       <script>
+            // 변수 var(오래된버전), let(최신버전, java변수와 같음), const(최신버전, 제일많이 사용, 재사용안됨)
+            // querySelector -> 특정한 class나 id가 없을 때 선택하겠다. body 태그를
+
+            /* 
+            js 는 오타나 철자 문제가 있을 때
+            문제를 보여주며 실행을 멈추는 것이 아니라 진행됨
+            style로 예를 들자면 기본색상인 검정을 가져오거나 그 전에 사용한 색상을 가지고와서 활용
+            */
+            const body = document.querySelector("body");
+            const section = document.querySelector(".section"); // class를 넣을려면 .을 넣어야함
+            function 밝은모드() {
+                section.style.background = "white";
+                section.style.color = "black";
+            }
+            function 어두운모드() {
+                section.style.background = "black";
+                section.style.color = "white";
+            }
+            function 분홍모드() {
+                section.style.background = "lightsteelblue";
+                section.style.color = "lightpink";
+            }
+            function 초록모드() {
+                section.style.background = "lightgreen";
+                section.style.color = "yellowgreen";
+            }
+
+       </script>
+    </body>
+</html>

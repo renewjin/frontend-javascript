@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>실습문제2</title>
+    </head>
+    <body>
+        <input type="text" name="textbox" id="textbox" value="클릭해서 환영인사로 바꾸세요">
+        <button onclick="인사버튼()">Click me</button>
+        
+        <script>
+            // innerText : 태그안에 있는 글자들
+            let 인사문구 =""; 
+            function 인사버튼() {
+                인사문구 = "Hello, World!"
+                document.getElementById("textbox").value = 인사문구;
+                alert(인사문구);
+            } 
+        </script>
+    </body>
+</html>

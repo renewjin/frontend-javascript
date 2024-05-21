@@ -20,21 +20,33 @@
 
                 
                 <script>
-                    const userName = document.getElementById("user_name").value;
-                    const userEmail = document.getElementById("user_email").value;
-                    const pw = document.getElementById("user_pw").value;
-                    const pwConfirm = document.getElementById("user_pw_confirm").value;
+                    
+                    
 
                     function 비밀번호확인() {
-                        if (pw!=pwConfirm) {
+                        const inputPW = document.getElementById("user_pw").value;
+                        const inputPWConfirm = document.getElementById("user_pw_confirm").value;
+                        if (inputPW!=inputPWConfirm) {
                             alert("비밀번호가 일치하지 않습니다 다시 작성해 주세요");
-                            return;
+                            
                         }
                     }
 
                     function 회원가입() {
-                        if(userName=="" || userEmail=="" || pw=="") {
+                        const inputName = document.getElementById("user_name").value;
+                        const inputPW = document.getElementById("user_pw").value;
+                        const inputEmail = document.getElementById("user_email").value;
+
+                        const userName = "동그라미";
+                        const userEmail = "circle@kh.kh";
+                        const userPW = "circle123";
+                        if(inputName=="" || inputEmail=="" || inputPW=="") {
                             alert("입력정보가 빠져있습니다. 다시 확인해주세요");
+                            return;
+                        }
+
+                        if (inputName==inputName || inputEmail==userEmail || inputPW==userPW) {
+                            alert("존재하는 회원입니다");
                             return;
                         }
                     }

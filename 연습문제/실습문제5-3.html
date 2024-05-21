@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>실습문제5-2</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                margin-left: 30px;
+            }
+            .헤더, .메인, .버튼  {
+                margin-bottom: 20px;
+            }
+
+            .메인 {
+                padding-left: 20px;
+
+            }
+
+            .메인입력 {
+                display: flex;
+                border-left: 1px solid;
+                padding-left: 10px;
+            }
+            .메인입력 label {
+                width: 140px;
+                font-weight: 800;
+                text-align: center;
+                font-size: 18px;
+            }
+            .메인입력 input, button, select {
+                margin-bottom: 10px;
+                margin-right: 10px;
+                padding: 1px 5px;
+            }
+
+            .메인선택, .소개{
+                margin: 20px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="헤더">
+            <h1>회원가입</h1>
+        </div>
+            <form>
+                <div class="메인">
+                    <div class="메인입력">
+                        <label>ID</label>
+                        <input type="text" name="userId" id="userId" placeholder="아이디 10글자 이내" maxlength="10" required>
+                        <button onclick="id중복확인()" name="idCheckbutton" id="idCheckbutton">중복 확인</button>
+                    </div>
+                    <div class="메인입력">
+                        <label>비밀번호</label>
+                        <input type="password" name="pw1" id="pw1" placeholder="영문,숫자,특수문자 포함 8자 이상" minlength="8" required>
+                    </div>
+                    <div class="메인입력">
+                        <label>비밀번호 확인</label>
+                        <input type="password" name="pw2" id="pw2" required>
+                        <button onclick="pw확인()" name="pwCheckbutton" id="pwCheckbutton">비밀번호 확인</button>
+                    </div>
+                    <div class="메인입력">
+                        <label>Email</label>
+                        <input type="email" name="email" id="email" required>
+                        <select name="emailSelect" id="emailSelect">
+                            <option>직접입력</option>
+                            <option>naver.com</option>
+                            <option>gmail.com</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="메인선택">
+                        <label>성별 : </label>
+                        <input type="radio" name="gender" id="gender" value="남성"> 남성
+                        <input type="radio" name="gender" id="gender" value="여성"> 여성
+                    </div>
+                    <div class="메인선택">
+                        <label>생년월일 : </label>
+                        <input type="date" name="birthday" id="birthday">
+                    </div>
+                    <div class="메인선택">
+                        <label>취미</label>
+                        <br>
+                        <input type="checkbox" name="hobby" value="야구"> 야구
+                        <input type="checkbox" name="hobby" value="농구"> 농구
+                        <input type="checkbox" name="hobby" value="축구"> 축구
+                        <br>
+                        <input type="checkbox" name="hobby" value="공부" checked> 공부
+                        <input type="checkbox" name="hobby" value="음악감상"> 음악감상
+                    </div>
+
+                    <div class="소개">
+                        <label>자기소개</label>
+                        <br>
+                        <textarea name="intro" id="intro" rows="10" cols="80" required></textarea>
+                    </div>
+                </div>
+                <br>
+                <div class="버튼">
+                    <button type="submit">회원가입</button>
+                    <button type="reset">다시입력</button>
+                </div>
+            </form>
+        <script>
+            let message;
+
+            function id중복확인() {
+                const inputId = document.getElementById("userId").value; // input태그의 아이디를 가져와 현재 값을 변수에 넣음
+                const existId = "userkh";
+
+                if (inputId.length>10) {
+                    alert("아이디를 10글자 이내로 만들어주세요");
+                    return;
+                }
+
+                if (existId==inputId) {
+                    alert(inputId + "는 이미 존재 아이디입니다.");
+                    document.getElementById("userId").value = ""; // 적혀있던값을 삭제시켜줌
+                    //document.getElementById("userId").innerText = ""; 
+                } else {
+                    alert("사용가능한 아이디 입니다");
+                }
+            }
+
+            function pw확인() {
+                const inputpw = document.getElementById("pw1").value; //
+                const inputpw_confirm = document.getElementById("pw2").value;
+
+                const 영문자 = inputpw.match(/[a-zA-Z]/g) || [];
+                const 숫자문자 = inputpw.match(/[0-9]/g) || [];
+                const 특수문자 = inputpw.match(/[^a-zA-Z0-9]/g) || [];
+
+                if (inputpw.length<8) {
+                    alert("비밀번호를 8자리 이상입력하세요");
+                    document.getElementById("pw1").value = ""; // 적혀있던값을 삭제시켜줌
+                    //document.getElementById("pw2").innerText = "";
+                    return;
+                } else {
+                    console.info(`영문자: ${영문자.length}개, 숫자: ${숫자문자.length}개, 특수문자: ${특수문자.length}개`); // ${변수} 출력할 때 변수값을 문자로 
+                    if (영문자.length == 0) {
+                        alert("비밀번호에 영문자가 빠져있습니다.영문자를 포함시키세요");
+                        return;
+                    } else if (숫자문자.length == 0) {
+                        alert("비밀번호에 숫자가 빠져있습니다.숫자를 포함시키세요");
+                        return;
+                    } else if (특수문자.length == 0) {
+                        alert("비밀번호에 특수문자가 빠져있습니다.특수문자를 포함시키세요");
+                        return;
+                    }
+                    
+                }
+
+                if(inputpw!=inputpw_confirm) {
+                    alert("비밀번호가 일치하지 않습니다");
+                    return;
+                } else {
+                    alert("비밀번호 확인하였습니다");
+                }
+
+                
+            }
+
+        </script>
+    </body>
+</html>
