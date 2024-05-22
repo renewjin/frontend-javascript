@@ -17,7 +17,7 @@
                 <label>이메일</label><input type="email" name="user_email" id="user_email" required>
                 <button onclick="존재확인()">아이디확인</button>
                 <br>
-                <label>비밀번호</label><input type="password" name="user_pw" id="user_pw" required>
+                <label>비밀번호</label><input type="password" name="user_pw" id="user_pw" placeholder="영문,숫자,특수문자 모두포함 8글자이상" required>
                 <br>
                 <label>비밀번호 확인</label><input type="password" name="user_pw_confirm" id="user_pw_confirm" required>
                 <button onclick="비밀번호확인()">비밀번호 확인</button>
@@ -38,23 +38,54 @@
                 const inputName = document.getElementById("user_name").value;
                 const inputEmail = document.getElementById("user_email").value;
 
+                if(inputName.length == 0) {
+                    alert("이름을 작성해 주세요");
+                    return;
+                }
+
+                if(inputEmail.length == 0) {
+                    alert("이메일을 작성해 주세요");
+                    return;
+                }
+
                 if(inputName==userName && inputEmail==userEmail) {
                     alert("이미 가입된 회원입니다.")
                     document.getElementById("user_name").value = "";
                     document.getElementById("user_email").value = "";
                     return
                 }
+
+                alert("사용가능한 아이디 입니다.");
             }
 
             function 비밀번호확인() {
                 const inputPW = document.getElementById("user_pw").value;
                 const inputPWConfirm = document.getElementById("user_pw_confirm").value;
+
+                const 숫자 = inputPW.match(/[0-9]/g) || [];
+                const 영문 = inputPW.match(/[a-zA-Z]/g) || [];
+                const 특수문자 = inputPW.match(/[^a-zA-Z0-9]/g) || [];
+
+                if(inputPW.length < 8) {
+                    alert("8글자 이상 작성해 주세요");
+                    return;
+                }
+
+                if(영문.length == 0 || 숫자.length == 0 || 특수문자.length == 0) {
+                    alert("비밀번호에 영문 숫자 특수문자 모두 포함해주세요");
+                    document.getElementById("user_pw_confirm").value = "";
+                    document.getElementById("user_pw").value = "";
+                    return;
+                }
+
                 if(inputPW != inputPWConfirm) {
                     alert("비밀번호가 일치하지 않습니다")
                     document.getElementById("user_pw_confirm").value = "";
                     document.getElementById("user_pw").value = "";
                     return;
                 }
+
+                alert("비밀번호가 일치 합니다.");
             }
 
             function 약관숨기기() {
