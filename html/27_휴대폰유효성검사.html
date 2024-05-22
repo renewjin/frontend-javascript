@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>회원가입</title>
+        <style>
+            
+        </style>
+        <link rel="stylesheet" href="../css/27_이름유효성검사.css">
+    </head>
+    <body>
+        <h2>회원가입</h2>
+        <form action="#" name="signupForm">
+            <h3>전화번호</h3>
+            <input type="text" class="signup-input" id="inputPhone" name="user_name">
+            <br>
+            <span class="input-result">전화번호 010-0000-0000</span>
+        </form>
+        <script>
+            /*
+            inputPhone
+            휴대폰번호
+            const phoneRegex = /^\d{3}-\{3,4}-\d{4}$/;
+
+            inputYears
+            생년월일
+            const birthdateRegex = /^(19|20)\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9|3[0-1])$/;
+            */
+
+
+            /*
+            유효성 여부를 체크해두는 객체 생성
+
+            1. 체크할 리스트
+            2. 체크할 태그 가져와 변수로 설정
+            3. 해당변수 이벤트 
+            */
+            const checkList = {
+                "inputPhone" : false
+            }
+
+            const inputPhone = document.querySelector("#inputPhone");
+
+            inputPhone.addEventListener("input", e=>{
+                const value = e.target.value;
+                const span = e.target.nextElementSibling.nextElementSibling;
+
+                if(value.trim().length==0) {
+                    span.textContent = "전화번호 010-0000-0000"
+                    span.classList.remove("check", "error");
+                    value="";
+                    checkList["inputPhone"]=false;
+                }
+
+                const 전화번호정규식 = /^(01[016789]{1})-?[0-9]{3,4}-?[0-9]{4}$/;
+
+                if(전화번호정규식.test(value)) {
+                    span.textContent = "유효한 전화번호 형식입니다";
+                    span.classList.add("check");
+                    span.classList.remove("error");
+                    checkList["inputPhone"] = true;
+                } else {
+                    span.textContent = "유효하지 않는 전화번호 형식입니다";
+                    span.classList.add("error");
+                    span.classList.remove("check");
+                    checkList["inputPhone"] = false;
+                }
+            })
+        </script>
+
+
+    </body>
+    
+</html>
