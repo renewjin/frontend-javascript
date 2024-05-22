@@ -4,6 +4,15 @@
         <meta charset="UTF-8">
         <title>채팅봇</title>
         <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                /*body 안에서 가운데로 정렬하기*/
+                justify-content: center;
+                height: 100vh;
+                margin: 0;
+            }
             #chat-container {
                 width: 300px;
                 height: 400px;
@@ -17,6 +26,7 @@
                 */
                 /* div 안에서 맨 밑으로 내리기*/
                 flex-direction: column;
+                margin-top: 20px;
             }
 
             #chat-box {
@@ -26,6 +36,7 @@
                 */
                 flex: 1;
                 padding: 10px;
+
                 border-bottom: 2px solid #ccc;
                 /*
                 overflow-y : 세로로 내용이 넘칠 때 어떻게 보이는지 선택하는 속성
@@ -75,26 +86,50 @@
                 color: white;
                 cursor: pointer;
             }
+
+            button:hover {
+                background-color: #0056b3;
+            }
         </style>
     </head>
     <body>
-        <h1>채팅 프로그램</h1>
-        <div id="chat-container">
+        <h1>채팅봇 프로그램</h1>
+        <button id="toggle-button" onclick="toggleChat()">채팅시작하기</button>
+        <div id="chat-container" style="display: none;">
             <div id="chat-box"></div>
             <div id="input-box">
                 <input type="text" id="user-input" placeholder="메세지를 입력하세요..">
                 <button onclick="sendMessage()">보내기</button>
             </div>
         </div>
+
         <script>
+            function toggleChat() {
+                const chatContainer = document.getElementById("chat-container");
+                const toggleButton = document.getElementById("toggle-button");
+                //chatContainer.style.display=="" -> 초기값이 빈 문자일수도 있기 때문
+                if (chatContainer.style.display=="none" ||chatContainer.style.display=="") {
+                    chatContainer.style.display="flex";
+                    toggleButton.textContent = "채팅숨기기";
+                } else {
+                    chatContainer.style.display="none";
+                    toggleButton.textContent = "채팅보이기";
+                }
+            }
+
+
+            // 자바스크립트는 매개변수가 함수에서 설정한 매개변수와 작성해야하는
+            // 개수가 달라도 문제없이 실행됨
+            메세지보이기("안녕하세요.kh 상담봇입니다. 원하는 메뉴를 입력하세요.");
+            메세지보이기("안녕하세요.kh 상담봇입니다. 원하는 메뉴를 입력하세요.", "bot");
             function sendMessage() {
                 const inputbox = document.getElementById("user-input");
-                const message = inputbox.value.trim();// trim 공백제거
+                const message = inputbox.value.trim();// user-input에 작성한 내용에(inputbox.value) .trim()함수를 사용하여 공백제거
                 // 만약에 빈칸으로 보낼 경우 아무런 메세지 없이 보내기를 방지하길 원한다면 설정
                 if(message =="") {
                     return;
                 }
-                메세지보이기(message, "user");
+                메세지보이기(message, "user"); // 메세지보이기 함수를 사용할 때 작성한 메세지와 누가 보냈는지 매개변수 설정 -> user
                 inputbox.value = ''; //input박스의 값 내용 초기화
 
                 //채팅봇 띄우기
@@ -104,15 +139,15 @@
             }
 
 
-            function 메세지보이기(message, sender) {
+            function 메세지보이기(message, sender) { // 매개변수값을 message, sender로 받아 sender로 추가할 클래스를 분리
                 const chatbox = document.getElementById("chat-box");
-                const messageElement = document.createElement("div");
+                const messageElement = document.createElement("div"); // div요소 추가
                 //                         div 클래스 명
                 //                            message
                 //                                    user | chatbot  -message
                 //messageElement.classList.add("message", "user-message");
                 //messageElement.classList.add("message", "bot-message");
-                messageElement.classList.add("message", sender + "-message");
+                messageElement.classList.add("message", sender + "-message"); // message 클래스 와 sender-message 클래스가 추가(sender은 변수로 값은 user또는 bot)
                 messageElement.textContent = message; // 메세지 보이기
                 chatbox.appendChild(messageElement); // 보낸 내용 추가하기 -> div chat-box
             }
