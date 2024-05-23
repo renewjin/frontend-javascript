@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>마우스올리기게임</title>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-3.7.1.js"></script>
+        <script>
+            $(document).ready(function() {
+                $(".box").on("mouseenter", function(){
+                    $(this).css("background-color"); //this = .box
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </body>
+</html>
