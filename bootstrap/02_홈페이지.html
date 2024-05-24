@@ -7,7 +7,16 @@
         rel="stylesheet" 
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
         crossorigin="anonymous">
-
+        <style>
+            .card-img-top{
+                /*
+                object-fit : 이미지나 비디오를 틀 안에 어떻게 맞춰서 작성할지 선택
+                cover : 이미지나 비디오의 틀의 비율을 유지하면서 틀에 완전히 채워지도록 조정
+                */
+                object-fit: cover;
+                height: 200px;
+            }
+        </style>
 
 
     </head>
@@ -27,15 +36,16 @@
                         <a class="nav-link" href="#">게시판</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="이미지갤러리.html">이미지 갤러리</a>
+                        <a class="nav-link" href="03_이미지겔러리.html">이미지 갤러리</a>
                     </li>
                 </ul>
             </div>
         </nav>
         <div class="container"> <!-- 전체 틀-->
-            <div class="row"> <!--가로-->
+            <div class="row mt-3"> <!--가로-->
                 <div class="col-md-4"> <!-- col = 세로 md 중간사이즈 4칸 차지-->
-                    <div class="card">
+                    <div class="card text-bg-warning">
+                        <div class="card-header">Header</div>
                         <div class="card-body">
                             <img src="pig.jpg" class="card-img-top">
                             <h5 class="card-title">카드타이틀</h5>
@@ -72,7 +82,7 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row mt-3">
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
