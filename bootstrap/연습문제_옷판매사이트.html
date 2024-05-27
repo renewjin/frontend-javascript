@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>옷판매사이트</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+        rel="stylesheet" 
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
+        crossorigin="anonymous">
+    </head>
+    <style>
+        .footer{
+            background-color: rgb(37, 37, 37);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            
+        }
+        .footer a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .col-3{
+            margin-left: 15px;
+            padding-bottom: 10px;
+            padding-left: 0;
+            padding-right: 0;
+            border: solid 2px #ccc;
+            
+        }
+
+        .content, .col-3 button {
+            margin-left: 10px;
+        }
+
+        .col-3 button:hover {
+            border: none;
+            background-color: white;
+            color: black;
+        }
+
+        .row {
+            justify-content: center;
+        }
+        .row h3{
+            margin-left: 90px;
+        }
+        
+    </style>
+    <body>
+        <!-- 네비게이션 바 -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">옷 판매 사이트</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span> <!-- 나중에 네비게이션바 아이콘 위치-->
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Cart</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="row mt-4">
+                <h3>상품목록</h3>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <img class="img-fluid" src="상의.png" alt="상의">
+                    
+                    <p class="content">상품명 1<br>
+                        \30,000                        
+                    </p>
+                    <a href="연습문제_상세설명.html" class="btn btn-dark" id="상세보기btn">상세보기</a>
+                    <button type="button" class="btn btn-success">장바구니에 추가</button>
+                </div>
+                <div class="col-3">
+                    <img class="img-fluid" src="여름상의.png" alt="상의">
+                    <p class="content">상품명 1<br>
+                        \30,000                        
+                    </p>
+                    <a href="연습문제_상세설명.html" class="btn btn-dark" id="상세보기btn">상세보기</a>
+                    <button type="button" class="btn btn-success">장바구니에 추가</button>
+                </div>
+                <div class="col-3">
+                    <img class="img-fluid" src="상의.png" alt="상의">
+                    <p class="content">상품명 1<br>
+                        \30,000                        
+                    </p>
+                    <a href="연습문제_상세설명.html" class="btn btn-dark" id="상세보기btn">상세보기</a>
+                    <button type="button" class="btn btn-success">장바구니에 추가</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <img class="img-fluid" src="바지.png" alt="상의">
+                    
+                    <p class="content">상품명 1<br>
+                        \30,000                        
+                    </p>
+                    <a href="연습문제_상세설명.html" class="btn btn-dark" id="상세보기btn">상세보기</a>
+                    <button type="button" class="btn btn-success">장바구니에 추가</button>
+                </div>
+                <div class="col-3">
+                    <img class="img-fluid" src="바지.png" alt="상의">
+                    <p class="content">상품명 1<br>
+                        \30,000                        
+                    </p>
+                    <a href="연습문제_상세설명.html" class="btn btn-dark" id="상세보기btn">상세보기</a>
+                    <button type="button" class="btn btn-success">장바구니에 추가</button>
+                </div>
+                <div class="col-3">
+                    <img class="img-fluid" src="바지.png" alt="상의">
+                    <p class="content">상품명 1<br>
+                        \30,000                        
+                    </p>
+                    <a href="연습문제_상세설명.html" class="btn btn-dark" id="상세보기btn">상세보기</a>
+                    <button type="button" class="btn btn-success">장바구니에 추가</button>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer mt-5">
+            <p>&copy; 2024 브랜드명 All Rights Reserved.</p>
+            <p>
+                <a href="#">개인정보처리방침</a> | <a href="#">이용약관</a>
+            </p>
+            
+        </footer>
+        
+        
+        <!--부트스트랩 기능작동-->
+        <script 
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
+        crossorigin="anonymous"
+        ></script>
+    </body>
+</html>

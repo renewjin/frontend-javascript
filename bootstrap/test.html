@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Navigation Example</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .nav-item {
+            position: relative;
+        }
+        .nav-item.selected::before {
+            content: '•';
+            position: absolute;
+            top: -10px; /* 점의 위치를 위로 띄움 */
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            color: black;
+        }
+        .nav-link {
+            margin-top: 10px; /* 점과 글자 사이의 간격 조정 */
+        }
+    </style>
+</head>
+<body>
+    <ul class="nav nav-pills">
+        <li class="nav-item selected">
+            <a class="nav-link active" href="#">Polls</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Draw</a>
+        </li>
+    </ul>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.nav-link').on('click', function() {
+                $('.nav-link').removeClass('active');
+                $(this).addClass('active');
+                
+                $('.nav-item').removeClass('selected');
+                $(this).closest('.nav-item').addClass('selected');
+            });
+        });
+    </script>
+</body>
+</html>
