@@ -89,8 +89,10 @@
                 display: block;
             }
 
-            .content {
+            .title {
                 justify-content: space-between;
+                position:relative;
+                line-height: 35px;
             }
             .date-sheet {
                 width: 100%;
@@ -143,9 +145,10 @@
             }
 
             .team-cell{
-                display: flex;
-                text-align: center;
-                position:relative;
+                display: block ;
+                text-align: left;
+                position: relative;
+                line-height: 35px;
             }
 
         </style>
@@ -171,25 +174,93 @@
         <nav class="main-navbar">
             <ul class="nav-menu">
                 <li class="nav-item">
-                    <a href="#">LIVE a</a>
+                    <a href="#">LIVE∙기록</a>
                     <ul class="dropdown">
-                        <li><a href="#">aaaa</a></li>
-                        <li><a href="#">aaaa</a></li>
-                        <li><a href="#">aaaa</a></li>
-                        <li><a href="#">aaaa</a></li>
-                        <li><a href="#">aaaa</a></li>
-                        <li><a href="#">aaaa</a></li>
-                        <li><a href="#">aaaa</a></li>
+                        <li><a href="#">일정 및 결과</a></li>
+                        <li><a href="#">팀 순위</a></li>
+                        <li><a href="#">선수 순위</a></li>
+                        <li><a href="#">팀 기록실</a></li>
+                        <li><a href="#">선수 기록실</a></li>
+                        <li><a href="#">팀 기록 비교</a></li>
+                        <li><a href="#">공수력 비교</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="#">Player and Stepper</a>
+                    <a href="#">선수∙스태프</a>
                     <ul class="dropdown">
-                        <li><a href="#">aaaa</a></li>
-                        <li><a href="#">aaaa</a></li>
-                        <li><a href="#">aaaa</a></li>
-                        <li><a href="#">aaaa</a></li>
+                        <li><a href="#">선수</a></li>
+                        <li><a href="#">코칭 스태프</a></li>
+                        <li><a href="#">지원 스태프</a></li>
+                        <li><a href="#">응원단</a></li>
                     </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#">FAN∙소통</a>
+                    <ul class="dropdown">
+                        <li><a href="#">KBL Polls</a></li>
+                        <li><a href="#">KBL Challenge</a></li>
+                        <li><a href="#">KBL Event</a></li>
+                        <li><a href="#">KBL Draw</a></li>
+                        <li><a href="#">KBL Experience</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">문의∙제안</a></li>
+                        <li><a href="#">SNS채널</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#">미디어∙뉴스</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Live∙다시보기</a></li>
+                        <li><a href="#">하이라이트∙TV</a></li>
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="#">보도자료</a></li>
+                        <li><a href="#">게임노트</a></li>
+                        <li><a href="#">사진</a></li>
+                        <li><a href="#">농구 이해하기</a></li>
+                        <li><a href="#">비디오룰북</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#">스토리</a>
+                    <ul class="dropdown">
+                        <li><a href="#">히스토리</a></li>
+                        <li><a href="#">시즌리뷰</a></li>
+                        <li><a href="#">주요기록</a></li>
+                        <li><a href="#">드래프트</a></li>
+                        <li><a href="#">제도 및 규칙</a></li>
+                        <li><a href="#">E-Book</a></li>
+                        <li><a href="#">클린바스켓센터</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#">KBL</a>
+                    <ul class="dropdown">
+                        <li><a href="#">소개∙인사말</a></li>
+                        <li><a href="#">프론트∙조직</a></li>
+                        <li><a href="#">연혁</a></li>
+                        <li><a href="#">엠플럼∙CI</a></li>
+                        <li><a href="#">스폰서</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#">티켓</a>
+                    <ul class="dropdown">
+                        <li><a href="#">예매하기</a></li>
+                        <li><a href="#">티켓가격</a></li>
+                        <li><a href="#">멤버십</a></li>
+                        <li><a href="#">티켓 안내사항(공통)</a></li>
+                        <li><a href="#">동아시아 슈퍼리그</a></li>
+                        <li><a href="#">D리그 직관신청</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#">KBL 스토어</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#">KBL Fantasy</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#">KBL Youth</a>
                 </li>
             </ul>
         </nav>
@@ -197,20 +268,48 @@
         <div class="container">
             <div class="row">
                 <div class="col-7">
-                    <div class="content d-flex my-3">
-                        <div>
-                            <h3><img src="kbl이미지/">주간 경기 일정/결과</h3>
+                    <div class="schedule-result-section my-3">
+                        <div class="title d-flex my-1">
+                            <div>
+                                <h3><img src="kbl이미지/">주간 경기 일정/결과</h3>
+                            </div>
+                            <div class="justify-content-end">
+                                <a href="#">더보기</a>
+                            </div>
                         </div>
-                        <div class="justify-content-end">
-                            <a href="#">더보기</a>
+                        <div class="date-sheet">
+                            <img src="" class="img-fluid rounded">
                         </div>
                     </div>
-                    <div class="date-sheet">
-                        <img src="" class="img-fluid rounded">
+
+                    <div class="event-section my-5">
+                        <div class="title d-flex my-1">
+                            <div class="d-flex">
+                                <h3>EVENT &nbsp;&nbsp;</h3>
+                                <a href="#poll-btn" onclick="Polls()" id="poll-btn">Polls</a>&nbsp;&nbsp;
+                                <a href="#draw-btn" onclick="Draw()" id="draw-btn">Draw </a>
+                            </div>
+                            <div class="justify-content-end">
+                                <a href="#">더보기</a>
+                            </div>
+                        </div>
+                        <div class="event-sheet">
+                            <div class="polls-sheet card">
+                                <a href="#">
+                                    <img src="kbl이미지/캡처_2024_05_24_19_13_36_808.png" class="img-fluid">
+                                    <p>이번 시즌 KBL 통합 플랫폼에서 실시한<br>
+                                    이벤트 중 가장 인상 깊은 이벤트는?
+                                    <br><br>
+                                    2024.05.03 ~ 2024.05.10
+                                    </p>
+                                </a>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
                 <div class="col-4">
-                    <div class="content d-flex my-3">
+                    <div class="content my-3">
                         <div>
                             <h3><img src="kbl이미지/">팀 순위</h3>
                         </div>
@@ -227,7 +326,7 @@
                             </tr>
                             <tr>
                                 <td>1</td>
-                                <td class="team-cell"><img src="kbl이미지/db.png"><p>원주 DB</p></td>
+                                <td class="team-cell"><img src="kbl이미지/db.png">원주 DB</td>
                                 <td> 41 </td>
                                 <td> 13 </td>
                                 <td> 0.759 </td>
